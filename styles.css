@@ -122,6 +122,69 @@ body {
   gap: 22px;
 }
 
+.live {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.live__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.live__header h2 {
+  font-family: "Noto Serif KR", serif;
+  font-size: 1.5rem;
+}
+
+.live__meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.live__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.live__card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.live__status {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.live__detail {
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.live__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.live__list li {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f5f6f8;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
 .card {
   background: var(--card);
   border-radius: var(--radius);
