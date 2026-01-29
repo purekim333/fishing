@@ -20,9 +20,7 @@ module.exports = async (req, res) => {
   const goalLat = getNumber(req.query.goalLat, 38.1065);
   const goalLon = getNumber(req.query.goalLon, 127.7084);
 
-  const url = new URL(
-    "https://naveropenapi.apigw.ntruss.com/map-direction/v1/driving"
-  );
+  const url = new URL("https://maps.apigw.ntruss.com/map-direction/v1/driving");
   url.searchParams.set("start", `${startLon},${startLat}`);
   url.searchParams.set("goal", `${goalLon},${goalLat}`);
   url.searchParams.set("option", "trafast");
