@@ -30,8 +30,10 @@ const config = {
 
 const weatherStatus = document.getElementById("weather-status");
 const weatherDetail = document.getElementById("weather-detail");
+const weatherBadge = document.getElementById("weather-badge");
 const trafficStatus = document.getElementById("traffic-status");
 const trafficDetail = document.getElementById("traffic-detail");
+const trafficBadge = document.getElementById("traffic-badge");
 const foodStatus = document.getElementById("food-status");
 const foodList = document.getElementById("food-list");
 const liveUpdated = document.getElementById("live-updated");
@@ -46,6 +48,29 @@ const updateTimestamp = () => {
   if (liveUpdated) {
     liveUpdated.textContent = `업데이트 ${formatTime(new Date())}`;
   }
+};
+
+const getWeatherBadge = (description) => {
+  const text = description || "";
+  if (text.includes("눈")) return { icon: "❄️", label: "눈" };
+  if (text.includes("비")) return { icon: "🌧️", label: "비" };
+  if (text.includes("안개") || text.includes("연무")) {
+    return { icon: "🌫️", label: "연무" };
+  }
+  if (text.includes("구름") || text.includes("흐림")) {
+    return { icon: "☁️", label: "흐림" };
+  }
+  if (text.includes("맑")) return { icon: "☀️", label: "맑음" };
+  return { icon: "🌤️", label: "날씨" };
+};
+
+const getTrafficBadge = (durationMin) => {
+  if (!Number.isFinite(durationMin)) {
+    return { label: "확인 중", className: "badge--info" };
+  }
+  if (durationMin <= 100) return { label: "원활", className: "badge--ok" };
+  if (durationMin <= 140) return { label: "보통", className: "badge--warn" };
+  return { label: "혼잡", className: "badge--busy" };
 };
 
 const fetchJson = async (url) => {
@@ -68,7 +93,13 @@ const loadWeather = async () => {
       lon: String(config.destination.lon),
     });
     const data = await fetchJson(`/api/weather?${query.toString()}`);
+    const badge = getWeatherBadge(data.description);
     weatherStatus.textContent = `${data.temp}°C · ${data.description}`;
+    if (weatherBadge) {
+      weatherBadge.textContent = `${badge.icon} ${badge.label}`;
+      weatherBadge.classList.remove("badge--info", "badge--ok", "badge--warn", "badge--busy");
+      weatherBadge.classList.add("badge--info");
+    }
     weatherDetail.innerHTML = `
       <span>체감 ${data.feelsLike}°C · 습도 ${data.humidity}%</span>
       <span>풍속 ${data.windSpeed}m/s · 최저/최고 ${data.tempMin}°C / ${data.tempMax}°C</span>
@@ -76,6 +107,11 @@ const loadWeather = async () => {
     `;
   } catch (error) {
     weatherStatus.textContent = "API 키 설정 필요";
+    if (weatherBadge) {
+      weatherBadge.textContent = "확인 필요";
+      weatherBadge.classList.remove("badge--info", "badge--ok", "badge--warn", "badge--busy");
+      weatherBadge.classList.add("badge--warn");
+    }
     weatherDetail.textContent = error.message;
   }
 };
@@ -90,14 +126,26 @@ const loadTraffic = async () => {
       goalLon: String(config.destination.lon),
     });
     const data = await fetchJson(`/api/traffic?${query.toString()}`);
+    const trafficMeta = getTrafficBadge(data.durationMin);
+    const eta = new Date(Date.now() + data.durationMin * 60000);
     trafficStatus.textContent = `${data.durationMin}분 · ${data.distanceKm}km`;
+    if (trafficBadge) {
+      trafficBadge.textContent = trafficMeta.label;
+      trafficBadge.classList.remove("badge--info", "badge--ok", "badge--warn", "badge--busy");
+      trafficBadge.classList.add(trafficMeta.className);
+    }
     trafficDetail.innerHTML = `
       <span>출발: ${config.origin.label}</span>
       <span>도착: ${config.destination.label}</span>
-      <span>${data.summary}</span>
+      <span>도착 예상 ${formatTime(eta)} · ${data.summary}</span>
     `;
   } catch (error) {
     trafficStatus.textContent = "API 키 설정 필요";
+    if (trafficBadge) {
+      trafficBadge.textContent = "확인 필요";
+      trafficBadge.classList.remove("badge--info", "badge--ok", "badge--warn", "badge--busy");
+      trafficBadge.classList.add("badge--warn");
+    }
     trafficDetail.textContent = error.message;
   }
 };
