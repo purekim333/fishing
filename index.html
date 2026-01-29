@@ -3,164 +3,353 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>제 5회 낚시 여행 안내</title>
+    <title>화천 산천어축제 · 안내</title>
     <link rel="stylesheet" href="styles.css" />
     <script defer src="app.js"></script>
   </head>
   <body>
     <div class="backdrop" aria-hidden="true"></div>
     <main class="page">
-      <header class="hero">
-        <div class="hero__tag">화천 산천어축제 · 12주년 우정여행</div>
-        <h1>제 5회 낚시 보고 및 안내</h1>
-        <p class="hero__sub">
-          2026-02-01 (일) · 무박 1일 · 대상어종: 산천어
-        </p>
-        <div class="hero__meta">
-          <div class="stat">
-            <span class="stat__label">D-Day</span>
-            <span class="stat__value" data-countdown="2026-02-01">계산 중</span>
-          </div>
-          <div class="stat">
-            <span class="stat__label">일출/일몰</span>
-            <span class="stat__value">07:34 / 17:52</span>
-          </div>
-          <div class="stat">
-            <span class="stat__label">예상 기온</span>
-            <span class="stat__value">-7°C ~ 2°C · 흐림</span>
-          </div>
-        </div>
-      </header>
-
-      <section class="live">
-        <div class="live__header">
-          <h2>실시간 정보</h2>
-          <span class="live__meta" id="live-updated">업데이트 준비 중</span>
-        </div>
-        <div class="live__grid">
-          <article class="card live__card">
-            <div class="live__title">
-              <h3>날씨</h3>
-              <span class="badge" id="weather-badge">준비 중</span>
+      <section class="stage stage--hero" data-stage="hero">
+        <div class="stage__inner hero reveal">
+          <div class="hero__tag">2026 화천 산천어축제</div>
+          <h1>겨울의 손맛, 하루에 집중된 여행.</h1>
+          <p class="hero__sub">2026-02-01 (일) · 무박 1일 · 대상어종: 산천어</p>
+          <div class="hero__meta">
+            <div class="stat">
+              <span class="stat__label">D-Day</span>
+              <span class="stat__value" data-countdown="2026-02-01">계산 중</span>
             </div>
-            <p class="live__status" id="weather-status">불러오는 중</p>
-            <div class="live__detail" id="weather-detail"></div>
-          </article>
-          <article class="card live__card">
-            <div class="live__title">
-              <h3>도로 소요시간</h3>
-              <span class="badge" id="traffic-badge">준비 중</span>
+            <div class="stat">
+              <span class="stat__label">일출/일몰</span>
+              <span class="stat__value">07:34 / 17:52</span>
             </div>
-            <p class="live__status" id="traffic-status">불러오는 중</p>
-            <div class="live__detail" id="traffic-detail"></div>
-          </article>
-          <article class="card live__card">
-            <h3>휴게소·맛집</h3>
-            <p class="live__status" id="food-status">불러오는 중</p>
-            <ul class="live__list" id="food-list"></ul>
-          </article>
+            <div class="stat">
+              <span class="stat__label">예상 기온</span>
+              <span class="stat__value">-7°C ~ 2°C · 흐림</span>
+            </div>
+          </div>
+          <div class="hero__actions">
+            <a
+              class="button"
+              href="https://map.naver.com/v5/directions/-/-/37.5278,127.0285,%EC%84%9C%EC%9A%B8%20%EC%95%95%EA%B5%AC%EC%A0%95/-/38.1065,127.7084,%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%EC%B6%95%EC%A0%9C"
+              target="_blank"
+              rel="noreferrer"
+            >
+              길찾기 시작
+            </a>
+            <a
+              class="button button--ghost"
+              href="https://search.naver.com/search.naver?query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C"
+              target="_blank"
+              rel="noreferrer"
+            >
+              축제 정보
+            </a>
+          </div>
         </div>
       </section>
 
-      <section class="grid">
-        <article class="card">
-          <h2>모이는 곳</h2>
-          <p>서울 강남구 압구정로11길 17 미성아파트 1동 앞</p>
-          <div class="pill">07:00 출발</div>
-        </article>
-
-        <article class="card">
-          <h2>가는 길</h2>
-          <ol class="route">
-            <li>신사중학교</li>
-            <li>올림픽대로 18km</li>
-            <li>서울양양고속도로 62km</li>
-            <li>순환대로 17km</li>
-            <li>화천정보산업고등학교 (주차장)</li>
-          </ol>
-          <div class="meta">
-            <span>예상 소요 1시간 31분</span>
-            <span>총 거리 약 97km</span>
+      <section class="stage stage--live" data-stage="live">
+        <div class="stage__inner">
+          <div class="section-head reveal">
+            <h2>실시간 상태</h2>
+            <span class="section-meta" id="live-updated">업데이트 준비 중</span>
           </div>
-        </article>
-
-        <article class="card">
-          <h2>일정</h2>
-          <ul class="timeline">
-            <li>
-              <span class="time">07:00</span>
-              <span class="desc">집결 및 출발</span>
-            </li>
-            <li>
-              <span class="time">오전</span>
-              <span class="desc">화천 산천어축제 현장 도착 · 현장 낚시</span>
-            </li>
-            <li>
-              <span class="time">12:00</span>
-              <span class="desc">행사장 간식 타임 (농특산물교환권)</span>
-            </li>
-            <li>
-              <span class="time">18:00</span>
-              <span class="desc">산천어 구이/회 또는 근처 식당</span>
-            </li>
-            <li>
-              <span class="time">20:00</span>
-              <span class="desc">복귀</span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>준비물</h2>
-          <ul class="check">
-            <li>따뜻한 옷차림</li>
-            <li>캠핑 의자</li>
-            <li>친구를 사랑하는 마음</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h2>식사 & 간식</h2>
-          <div class="meals">
-            <div>
-              <h3>조식</h3>
-              <p>김밥, 따수운 커피</p>
-            </div>
-            <div>
-              <h3>중식</h3>
-              <p>행사장 내 간식 (농특산물교환권 활용)</p>
-            </div>
-            <div>
-              <h3>석식</h3>
-              <p>잡은 산천어 취식 (구이/회) 또는 근처 식당</p>
-            </div>
+          <div class="live-strip reveal">
+            <article class="live-item">
+              <div class="live-item__head">
+                <h3>날씨</h3>
+                <span class="badge" id="weather-badge">준비 중</span>
+              </div>
+              <div class="live-item__body">
+                <p class="live__status" id="weather-status">불러오는 중</p>
+                <div class="live__detail" id="weather-detail"></div>
+              </div>
+            </article>
+            <article class="live-item">
+              <div class="live-item__head">
+                <h3>도로 소요시간</h3>
+                <span class="badge" id="traffic-badge">준비 중</span>
+              </div>
+              <div class="live-item__body">
+                <p class="live__status" id="traffic-status">불러오는 중</p>
+                <div class="live__detail" id="traffic-detail"></div>
+              </div>
+            </article>
+            <article class="live-item">
+              <div class="live-item__head">
+                <h3>휴게소·맛집</h3>
+                <span class="badge badge--info">추천</span>
+              </div>
+              <div class="live-item__body">
+                <p class="live__status" id="food-status">불러오는 중</p>
+                <ul class="live__list" id="food-list"></ul>
+              </div>
+            </article>
           </div>
-          <div class="note">
-            휴게소 음식은 출발 전 확정 예정. 경로상 편의점/휴게소 이용 가능.
-          </div>
-        </article>
-
-        <article class="card">
-          <h2>공지</h2>
-          <ul class="alerts">
-            <li>길거리 판매점에서 견지대 6,000원 (각자) 구매 예정</li>
-            <li>뜰채 3,000원 (총 1개) 구매 예정</li>
-            <li>본가 창고에서 발견 가능성 小</li>
-          </ul>
-        </article>
+        </div>
       </section>
 
-      <section class="panel">
-        <h2>참가자</h2>
-        <div class="chips">
-          <span>김승윤</span>
-          <span>김건우</span>
-          <span>박준하</span>
-          <span>박준현</span>
+      <section class="stage stage--journey" data-stage="journey">
+        <div class="stage__inner">
+          <div class="section-head reveal">
+            <h2>가는 길 한눈에</h2>
+            <p class="section-sub">실시간 교통을 반영해 이동 전략을 세웁니다.</p>
+          </div>
+          <div class="journey reveal">
+            <div class="journey__map">
+              <div class="map-frame" data-map-lat="38.1065" data-map-lon="127.7084">
+                <img
+                  id="naver-map"
+                  class="map-frame__view"
+                  alt="화천 산천어축제 위치 지도"
+                  loading="lazy"
+                />
+                <div class="map-frame__overlay">
+                  <span>네이버 지도 미리보기</span>
+                </div>
+              </div>
+              <div class="journey__stats">
+                <div>
+                  <p class="journey__label">출발</p>
+                  <strong>서울 압구정</strong>
+                </div>
+                <div>
+                  <p class="journey__label">도착</p>
+                  <strong>화천 산천어축제</strong>
+                </div>
+                <div>
+                  <p class="journey__label">예상 이동</p>
+                  <strong id="journey-duration">계산 중</strong>
+                  <span class="journey__meta" id="journey-distance">거리 확인 중</span>
+                </div>
+                <div>
+                  <p class="journey__label">도착 예상</p>
+                  <strong id="journey-eta">계산 중</strong>
+                  <span class="journey__meta" id="journey-summary">실시간 빠른 길 기준</span>
+                </div>
+              </div>
+            </div>
+            <div class="journey__route">
+              <div class="route-head">
+                <h3>드라이브 플로우</h3>
+                <p class="meta-text">구간을 눌러 상세 안내를 확인하세요.</p>
+              </div>
+              <div class="route-progress">
+                <span class="route-progress__bar" id="route-progress"></span>
+              </div>
+              <div class="route-steps" id="route-steps">
+                <button class="route-step is-active" type="button" data-route-step="0">신사중학교</button>
+                <button class="route-step" type="button" data-route-step="1">올림픽대로 18km</button>
+                <button class="route-step" type="button" data-route-step="2">서울양양고속도로 62km</button>
+                <button class="route-step" type="button" data-route-step="3">순환대로 17km</button>
+                <button class="route-step" type="button" data-route-step="4">화천정보산업고등학교 (주차장)</button>
+              </div>
+              <div class="route-panel">
+                <h4 id="route-title">신사중학교</h4>
+                <p id="route-desc">집결 후 출발 준비를 마친 뒤 바로 진입합니다.</p>
+                <p class="route-meta" id="route-meta">혼잡 구간 우회 체크</p>
+              </div>
+              <div class="tips-panel">
+                <h4>맞춤 팁</h4>
+                <p class="meta-text" id="tips-title">현장 정보를 반영해 추천 중</p>
+                <ul class="tips" id="tips-list"></ul>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="panel__desc">
-          2015년 서울현대고등학교부터 이어진 우정의 12주년을 기념하는 여행입니다.
-        </p>
+      </section>
+
+      <section class="stage stage--media" data-stage="media">
+        <div class="stage__inner">
+          <div class="section-head reveal">
+            <h2>뉴스 & 현장</h2>
+            <p class="section-sub">핵심 공지와 현장 분위기를 빠르게 탐색합니다.</p>
+          </div>
+          <div class="media reveal">
+            <div class="media__stack">
+              <article class="media-panel">
+                <h3>핵심 뉴스</h3>
+                <ul class="media-list">
+                  <li>
+                    <a
+                      href="https://search.naver.com/search.naver?where=news&query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C%20%EC%9D%BC%EC%A0%95"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      2026 축제 일정·운영 소식
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://search.naver.com/search.naver?where=news&query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C%20%EA%B5%90%ED%86%B5%20%EC%A3%BC%EC%B0%A8"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      교통·주차 공지 확인
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://search.naver.com/search.naver?where=news&query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C%20%EC%B2%B4%ED%97%98%20%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      체험 프로그램 모아보기
+                    </a>
+                  </li>
+                </ul>
+                <div class="media-chips">
+                  <a
+                    class="pill"
+                    href="https://search.naver.com/search.naver?where=blog&query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C%20%ED%98%84%EC%9E%A5%20%ED%9B%84%EA%B8%B0"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    블로그 후기
+                  </a>
+                  <a
+                    class="pill"
+                    href="https://search.naver.com/search.naver?where=video&query=%ED%99%94%EC%B2%9C%20%EC%82%B0%EC%B2%9C%EC%96%B4%20%EC%B6%95%EC%A0%9C"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    네이버 영상
+                  </a>
+                </div>
+              </article>
+            </div>
+            <article class="media-panel media-panel--gallery">
+              <div class="gallery-head">
+                <h3>현장 사진 갤러리</h3>
+                <div class="gallery-tabs" role="tablist">
+                  <button class="tab is-active" type="button" data-gallery-tab="festival">축제</button>
+                  <button class="tab" type="button" data-gallery-tab="ice">얼음낚시</button>
+                  <button class="tab" type="button" data-gallery-tab="food">먹거리</button>
+                  <button class="tab" type="button" data-gallery-tab="night">야간</button>
+                </div>
+              </div>
+              <div class="carousel" data-carousel>
+                <button class="carousel__control" data-carousel-prev type="button" aria-label="이전 사진">
+                  ◀
+                </button>
+                <div class="carousel__viewport" data-carousel-viewport>
+                  <div class="carousel__track" data-carousel-track></div>
+                </div>
+                <button class="carousel__control" data-carousel-next type="button" aria-label="다음 사진">
+                  ▶
+                </button>
+                <div class="carousel__dots" data-carousel-dots></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage stage--video" data-stage="video">
+        <div class="stage__inner">
+          <div class="section-head reveal">
+            <h2>유튜브 하이라이트</h2>
+            <a
+              class="button button--ghost"
+              href="https://www.youtube.com/results?search_query=%ED%99%94%EC%B2%9C+%EC%82%B0%EC%B2%9C%EC%96%B4+%EC%B6%95%EC%A0%9C"
+              target="_blank"
+              rel="noreferrer"
+            >
+              유튜브에서 더 보기
+            </a>
+          </div>
+          <p class="video__meta" id="video-meta">영상 추천 로딩 중</p>
+          <div class="video__slider reveal">
+            <button class="slider-button" type="button" data-video-prev aria-label="이전 영상">◀</button>
+            <div class="video__track" id="video-track"></div>
+            <button class="slider-button" type="button" data-video-next aria-label="다음 영상">▶</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stage stage--details" data-stage="details">
+        <div class="stage__inner">
+          <div class="section-head reveal">
+            <h2>여정 디테일</h2>
+            <p class="section-sub">모임과 일정, 식사 정보를 간결하게 정리했습니다.</p>
+          </div>
+          <div class="details reveal">
+            <div class="details__columns">
+              <div class="details__block">
+                <div class="details__section">
+                  <h3>모이는 곳</h3>
+                  <p>서울 강남구 압구정로11길 17 미성아파트 1동 앞</p>
+                  <span class="pill">07:00 출발</span>
+                </div>
+                <div class="details__section">
+                  <h3>일정</h3>
+                  <ul class="timeline">
+                    <li>
+                      <span class="time">07:00</span>
+                      <span class="desc">집결 및 출발</span>
+                    </li>
+                    <li>
+                      <span class="time">오전</span>
+                      <span class="desc">화천 산천어축제 현장 도착 · 현장 낚시</span>
+                    </li>
+                    <li>
+                      <span class="time">12:00</span>
+                      <span class="desc">행사장 간식 타임 (농특산물교환권)</span>
+                    </li>
+                    <li>
+                      <span class="time">18:00</span>
+                      <span class="desc">산천어 구이/회 또는 근처 식당</span>
+                    </li>
+                    <li>
+                      <span class="time">20:00</span>
+                      <span class="desc">복귀</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="details__block">
+                <div class="details__section">
+                  <h3>식사 & 간식</h3>
+                  <div class="meals">
+                    <div>
+                      <h4>조식</h4>
+                      <p>김밥, 따수운 커피</p>
+                    </div>
+                    <div>
+                      <h4>중식</h4>
+                      <p>행사장 내 간식 (농특산물교환권 활용)</p>
+                    </div>
+                    <div>
+                      <h4>석식</h4>
+                      <p>잡은 산천어 취식 (구이/회) 또는 근처 식당</p>
+                    </div>
+                  </div>
+                  <div class="note">휴게소 음식은 출발 전 확정 예정. 경로상 편의점/휴게소 이용 가능.</div>
+                </div>
+                <div class="details__section">
+                  <h3>공지</h3>
+                  <ul class="alerts">
+                    <li>길거리 판매점에서 견지대 6,000원 (각자) 구매 예정</li>
+                    <li>뜰채 3,000원 (총 1개) 구매 예정</li>
+                    <li>본가 창고에서 발견 가능성 小</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <section class="panel reveal">
+            <h2>참가자</h2>
+            <div class="chips">
+              <span>김승윤</span>
+              <span>김건우</span>
+              <span>박준하</span>
+              <span>박준현</span>
+            </div>
+            <p class="panel__desc">2015년부터 이어진 우정의 12주년을 기념하는 여행입니다.</p>
+          </section>
+        </div>
       </section>
     </main>
   </body>

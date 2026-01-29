@@ -35,7 +35,8 @@ const searchPlaces = async ({ query, lat, lon, apiKey }) => {
 
 module.exports = async (req, res) => {
   const apiKey = process.env.KAKAO_REST_API_KEY;
-  if (!apiKey) {
+  const hasKey = apiKey && !apiKey.includes("YOUR_KAKAO_REST_API_KEY");
+  if (!hasKey) {
     res.status(200).json({
       restAreas: [],
       restaurants: [],
