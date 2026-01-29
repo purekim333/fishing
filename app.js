@@ -52,7 +52,10 @@ const fetchJson = async (url) => {
   const response = await fetch(url);
   if (!response.ok) {
     const error = await response.json().catch(() => ({}));
-    throw new Error(error.message || "정보를 불러오지 못했습니다.");
+    const message = [error.message, error.detail]
+      .filter(Boolean)
+      .join(" · ");
+    throw new Error(message || "정보를 불러오지 못했습니다.");
   }
   return response.json();
 };
